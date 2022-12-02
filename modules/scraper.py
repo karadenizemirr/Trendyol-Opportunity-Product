@@ -18,6 +18,22 @@ class Scraper:
         self.base_url = "https://www.trendyol.com/"
         # &pi=4
 
+    def get_page_number(self, link=None):
+        counter = 1
+        
+        while True:
+            _link = f"{link}&pi={counter}"
+            req = self.bypass.get(URL=_link, allow_redirect=True)
+            html = BeautifulSoup(req, 'lxml').findAll('div', {'class': 'prdct-cntnr-wrppr'})
+
+            if len(html) < 1:
+                if counter >= 150:
+                    break
+                break
+            counter += 1
+        
+        return counter - 1
+        
     def get_product_link(self,links=[]):
         for link in links:
             req = self.bypass.get(URL=link)

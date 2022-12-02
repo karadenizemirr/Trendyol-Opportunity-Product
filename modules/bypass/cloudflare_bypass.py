@@ -33,9 +33,9 @@ class Bypass:
             ";%09..;",
             ";%2f..",
             "*"]
-    def get(self, URL):
+    def get(self, URL = None, allow_redirect= False):
         for p in self.payloads:
-            req = self.session.get(f"{URL}{p}")
+            req = self.session.get(f"{URL}{p}", allow_redirects=allow_redirect)
             if req.text.find('Access Denied') <= 0:
                 return req.text
             else:
