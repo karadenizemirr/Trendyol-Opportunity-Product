@@ -1,6 +1,7 @@
 import requests
 import re
 import os
+import random
 from rich.console import Console
 from rich.progress import Progress
 from bs4 import BeautifulSoup
@@ -65,8 +66,8 @@ class Scraper:
         links.pop(0)
 
         with self.console.status('Ürün detayları alınıyor') as progress:
-            for link in links:
-                req = self.bypass.get(URL=link)
+            for link in range(0, len(links)):
+                req = self.bypass.get(URL=links[random.randint(0, len(links) - 1)])
                 html = BeautifulSoup(req, 'lxml')
                 
                 title = self.get_title(html)
