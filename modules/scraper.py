@@ -88,10 +88,13 @@ class Scraper:
                 message = f""" 
                 \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{link}">{title}</a>\n\n<b>Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price} TL\n<b>Fırsat Satıcı:</b>{other_seller_name}\n<b>Fırsat Fiyat:</b>{other_seller_price} TL\n<b>Yüzdelik Fark:</b>{"%.2f" % percent}\n\n
                 """
-                self.telegram.sendMessage(message=message)
-                self.telegram_my.sendMessage(message=message)
+                logControl = logger.log_control(query=title, filename='productLog')
+
+                if logControl == False:
+                    self.telegram.sendMessage(message=message)
+                    self.telegram_my.sendMessage(message=message)
             
-            logger.create_log(link, 'linkControlLog')   
+            logger.create_log(link, 'productLog')   
     
     def get_title(self, soup):
         try:
