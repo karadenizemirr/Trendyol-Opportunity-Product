@@ -22,10 +22,9 @@ console.print("""
 def main():
     console.print("\nLütfen kategori .txt dosyasını seçiniz.", style="bold red")
     time.sleep(2)
-    filepath = filedialog.askopenfilename(title="Kategori Dosyası Seçiniz.")
     category_link = []
 
-    with open(filepath, 'r', encoding="utf-8") as file:
+    with open('data/category.txt', 'r', encoding="utf-8") as file:
         for f in file.readlines():
             category_link.append(f.strip())
     
