@@ -80,8 +80,8 @@ class Scraper:
                     other_seller_name = self.get_other_seller_name(other_seller)
                     other_seller_price = self.get_other_seller_price(other_seller)
                     thirt_price = self.get_other_seller_price(html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[1])
-                    A = float(re.sub(r',(.*)','',price))
-                    B = float(other_seller_price.replace(' TL', ''))
+                    A = int(re.sub(r',(.*)','',price))
+                    B = int(other_seller_price.replace(' TL', ''))
 
                     percent = ((B - A) / B) * 100
                 except:
