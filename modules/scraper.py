@@ -67,7 +67,8 @@ class Scraper:
 
         with self.console.status('Ürün detayları alınıyor') as progress:
             for link in range(0, len(links)):
-                req = self.bypass.get(URL=links[random.randint(0, len(links) - 1)])
+                __link = links[random.randint(0, len(links) - 1)]
+                req = self.bypass.get(URL=__link)
                 html = BeautifulSoup(req, 'lxml')
                 
                 title = self.get_title(html)
@@ -86,7 +87,7 @@ class Scraper:
                 
                 if percent >= 25:
                     message = f""" 
-                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{link}">{title}</a>\n\n<b>Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price} TL\n<b>Fırsat Satıcı:</b>{other_seller_name}\n<b>Fırsat Fiyat:</b>{other_seller_price} TL\n<b>Yüzdelik Fark:</b>{"%.2f" % percent}\n\n
+                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price} TL\n<b>Fırsat Satıcı:</b>{other_seller_name}\n<b>Fırsat Fiyat:</b>{other_seller_price} TL\n<b>Yüzdelik Fark:</b>{"%.2f" % percent}\n\n
                     """
                     logControl = logger.log_control(query=title, filename='productLog')
 
