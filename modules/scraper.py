@@ -46,6 +46,11 @@ class Scraper:
                 
                 for l in link_html:
                     _links.append(f"{self.base_url}{str(l.findNext('a')['href']).strip()}")
+        try:
+            os.remove('data/links.txt')
+        except:
+            pass
+        
         with open('data/links.txt', 'w', encoding='utf-8') as file:
             for _ in _links:
                 file.write('\n')
@@ -54,11 +59,6 @@ class Scraper:
     
     def get_product_detail(self):
         links = []
-
-        try:
-            os.remove('data/links.txt')
-        except:
-            pass
         with open('data/links.txt', 'r', encoding='utf-8') as file:
             for f in file.readlines():
                 links.append(f.strip())
