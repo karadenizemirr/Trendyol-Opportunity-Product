@@ -2,8 +2,8 @@ import requests
 import re
 import os
 from rich.console import Console
+from rich.progress import Progress
 from bs4 import BeautifulSoup
-from modules.user_agent import user_agent
 from modules.bypass import cloudflare_bypass
 from modules.telegram import telegram
 from modules.logger import logger
@@ -21,38 +21,43 @@ class Scraper:
     def get_page_number(self, link=None):
         counter = 1
         
-        while True:
-            _link = f"{link}&pi={counter}"
-            req = self.bypass.get(URL=_link, allow_redirect=True)
-            html = BeautifulSoup(req, 'lxml').findAll('div', {'class': 'prdct-cntnr-wrppr'})
+        with self.console.status("[cyan]Sayfa numarasını tespit ediliyor..[/cyan]") as status:
+            while True:
+                _link = f"{link}&pi={counter}"
+                req = self.bypass.get(URL=_link, allow_redirect=True)
+                html = BeautifulSoup(req, 'lxml').findAll('div', {'class': 'prdct-cntnr-wrppr'})
 
-            if len(html) < 1:
-                if counter >= 150:
+                if len(html) < 1:
+                    if counter >= 150:
+                        break
                     break
-                break
-            counter += 1
-        
-        return int(counter - 1)
+                counter += 1
+            self.console.log('Sayfa numarası tespit edildi.', style="bold yellow")
+            return int(counter - 1)
         
     def get_product_link(self,links=[]):
-        for link in links:
-            req = self.bypass.get(URL=f"{link}&pi={self.get_page_number(link)}")
-            html = BeautifulSoup(req, 'lxml')
 
-            links = []
+        with Progress() as progress:
+            pbar = progress.add_task('[cyan]Ürün linkleri alınıyor.[/cyan]', total=len(links))
+            for link in links:
+                req = self.bypass.get(URL=f"{link}&pi={self.get_page_number(link)}")
+                html = BeautifulSoup(req, 'lxml')
 
-            link_html = html.findAll('div', {'class' : 'p-card-chldrn-cntnr card-border'})
-            
-            for l in link_html:
-                links.append(f"{self.base_url}{str(l.findNext('a')['href']).strip()}")
-            
-            # Save Links File
+                links = []
 
-            with open('data/links.txt', 'w', encoding='utf-8') as file:
-                for _ in links:
-                    file.write('\r')
-                    file.write(_.strip())
-            
+                link_html = html.findAll('div', {'class' : 'p-card-chldrn-cntnr card-border'})
+                
+                for l in link_html:
+                    links.append(f"{self.base_url}{str(l.findNext('a')['href']).strip()}")
+                
+                # Save Links File
+
+                with open('data/links.txt', 'w', encoding='utf-8') as file:
+                    for _ in links:
+                        file.write('\r')
+                        file.write(_.strip())
+                progress.update(pbar, advance=1)
+            self.console.log('Ürün linkleri alındı.', style="bold yellow")
             return links
     
     def get_product_detail(self):
@@ -66,35 +71,38 @@ class Scraper:
             for f in file.readlines():
                 links.append(f.strip())
         links.pop(0)
-        for link in links:
-            req = self.bypass.get(URL=link)
-            html = BeautifulSoup(req, 'lxml')
-            
-            title = self.get_title(html)
-            seller = self.get_seller(html)
-            price = self.get_price(html)
-            
-            try:
-                other_seller = html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[0]
-                other_seller_name = self.get_other_seller_name(other_seller)
-                other_seller_price = self.get_other_seller_price(other_seller)
-                percent = ((price - other_seller_price) / price) * 100
-            except:
-                percent = "none"
-                continue
 
-            
-            if percent >= 25:
-                message = f""" 
-                \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{link}">{title}</a>\n\n<b>Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price} TL\n<b>Fırsat Satıcı:</b>{other_seller_name}\n<b>Fırsat Fiyat:</b>{other_seller_price} TL\n<b>Yüzdelik Fark:</b>{"%.2f" % percent}\n\n
-                """
-                logControl = logger.log_control(query=title, filename='productLog')
+        with Progress() as progress:
+            pbar = progress.add_task("[cyan]Ürün detayları alınıyor..[/cyan]")
+            for link in links:
+                req = self.bypass.get(URL=link)
+                html = BeautifulSoup(req, 'lxml')
+                
+                title = self.get_title(html)
+                seller = self.get_seller(html)
+                price = self.get_price(html)
+                
+                try:
+                    other_seller = html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[0]
+                    other_seller_name = self.get_other_seller_name(other_seller)
+                    other_seller_price = self.get_other_seller_price(other_seller)
+                    percent = ((price - other_seller_price) / price) * 100
+                except:
+                    percent = "none"
+                    continue
 
-                if logControl == False:
-                    self.telegram.sendMessage(message=message)
-                    self.telegram_my.sendMessage(message=message)
-            
-            logger.create_log(link, 'productLog')   
+                
+                if percent >= 25:
+                    message = f""" 
+                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{link}">{title}</a>\n\n<b>Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price} TL\n<b>Fırsat Satıcı:</b>{other_seller_name}\n<b>Fırsat Fiyat:</b>{other_seller_price} TL\n<b>Yüzdelik Fark:</b>{"%.2f" % percent}\n\n
+                    """
+                    logControl = logger.log_control(query=title, filename='productLog')
+
+                    if logControl == False:
+                        #self.telegram.sendMessage(message=message)
+                        self.telegram_my.sendMessage(message=message)
+                progress.update(pbar, advance=1)
+                logger.create_log(link, 'productLog')   
     
     def get_title(self, soup):
         try:
