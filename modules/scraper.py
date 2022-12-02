@@ -22,7 +22,7 @@ class Scraper:
     def get_page_number(self, link=None):
         counter = 1
         
-        with self.console.status("[cyan]Sayfa numarasını tespit ediliyor..[/cyan]") as status:
+        with self.console.status("[cyan]Sayfa numaraları tespit ediliyor..[/cyan]") as status:
             while True:
                 _link = f"{link}&pi={counter}"
                 req = self.bypass.get(URL=_link, allow_redirect=True)
@@ -79,7 +79,11 @@ class Scraper:
                     other_seller = html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[0]
                     other_seller_name = self.get_other_seller_name(other_seller)
                     other_seller_price = self.get_other_seller_price(other_seller)
-                    percent = ((price - other_seller_price) / price) * 100
+                    thirt_price = self.get_other_seller_price(html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[1])
+                    A = float(re.sub(r',(.*)','',price))
+                    B = float(other_seller_price.replace(' TL', ''))
+
+                    percent = ((B - A) / B) * 100
                 except:
                     percent = "none"
                     continue
@@ -87,7 +91,7 @@ class Scraper:
                 
                 if percent >= 25:
                     message = f""" 
-                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price} TL\n<b>Fırsat Satıcı:</b>{other_seller_name}\n<b>Fırsat Fiyat:</b>{other_seller_price} TL\n<b>Yüzdelik Fark:</b>{"%.2f" % percent}\n\n
+                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>İlk Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price}\n<b>İkinci Satıcı:</b>{other_seller_name}\n<b>İkinci Satıcı Fiyat:</b>{other_seller_price}\n<b>Üçüncü Satıcı Fiyat:</b>{other_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % abs(percent)}\n\n
                     """
                     logControl = logger.log_control(query=title, filename='productLog')
 
@@ -115,7 +119,8 @@ class Scraper:
     
     def get_price(self, soup):
         try:
-            price = float(re.sub(r',(.*)','',soup.find('span', {'class': 'prc-dsc'}).text))
+            #price = float(re.sub(r',(.*)','',soup.find('span', {'class': 'prc-dsc'}).text))
+            price = soup.find('span', {'class': 'prc-dsc'}).text
         except:
             price = "null"
         
@@ -131,16 +136,9 @@ class Scraper:
     
     def get_other_seller_price(self, soup):
         try:
-            other_seller_price = float(soup.find('span', {'class': 'prc-dsc'}).text.replace(' TL', ''))
+            #other_seller_price = float(soup.find('span', {'class': 'prc-dsc'}).text.replace(' TL', ''))
+            other_seller_price = soup.find('span', {'class': 'prc-dsc'}).text
         except:
             other_seller_price = "null"
         
         return other_seller_price
-    
-    def get_product_img(self, soup):
-        try:
-            product_img = soup.findAll('div', {'class': 'gallery-container'})[0].img['src']
-        except:
-            product_img = "null"
-        
-        return product_img
