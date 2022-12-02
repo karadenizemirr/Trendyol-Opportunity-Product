@@ -32,11 +32,11 @@ class Scraper:
                 break
             counter += 1
         
-        return counter - 1
+        return int(counter - 1)
         
     def get_product_link(self,links=[]):
         for link in links:
-            req = self.bypass.get(URL=link)
+            req = self.bypass.get(URL=f"{link}&pi={self.get_page_number(link)}")
             html = BeautifulSoup(req, 'lxml')
 
             links = []
