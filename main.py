@@ -33,8 +33,9 @@ def main():
     sc.get_product_link(links=category_link)
     # Get Operations
     sc.get_product_detail()
-
+    
 
 if __name__=='__main__':
     while True:
         main()
+        time.sleep(60 * 5)
