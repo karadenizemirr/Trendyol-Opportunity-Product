@@ -15,7 +15,7 @@ class Scraper:
         self.bypass = cloudflare_bypass.Bypass()
         self.telegram = telegram.Telegram(token="5750542194:AAHUctF5ImPnjjOmobKfh7pUBsd_5ZHobG8", user_id="744777387")
         self.telegram_my = telegram.Telegram(token="5901890521:AAG_9fjlySpTIQmJD-pb5wjYXC8hU-jjVvA", user_id="5669620760")
-        self.base_url = "https://www.trendyol.com/"
+        self.base_url = "https://www.trendyol.com"
         # &pi=4
 
     def get_page_number(self, link=None):
@@ -36,29 +36,21 @@ class Scraper:
             return int(counter - 1)
         
     def get_product_link(self,links=[]):
-
-        with Progress() as progress:
-            pbar = progress.add_task('[cyan]Ürün linkleri alınıyor.[/cyan]', total=len(links))
-            for link in links:
-                req = self.bypass.get(URL=f"{link}&pi={self.get_page_number(link)}")
+        _links = []
+        for link in links:
+            for p in range(0, self.get_page_number(link)):
+                req = self.bypass.get(URL=f"{link}&pi={p}")
                 html = BeautifulSoup(req, 'lxml')
-
-                links = []
 
                 link_html = html.findAll('div', {'class' : 'p-card-chldrn-cntnr card-border'})
                 
                 for l in link_html:
-                    links.append(f"{self.base_url}{str(l.findNext('a')['href']).strip()}")
-                
-                # Save Links File
-
-                with open('data/links.txt', 'w', encoding='utf-8') as file:
-                    for _ in links:
-                        file.write('\r')
-                        file.write(_.strip())
-                progress.update(pbar, advance=1)
-            self.console.log('Ürün linkleri alındı.', style="bold yellow")
-            return links
+                    _links.append(f"{self.base_url}{str(l.findNext('a')['href']).strip()}")
+        with open('data/links.txt', 'w', encoding='utf-8') as file:
+            for _ in _links:
+                file.write('\n')
+                file.write(_.strip())
+        return _links
     
     def get_product_detail(self):
         links = []
@@ -72,8 +64,7 @@ class Scraper:
                 links.append(f.strip())
         links.pop(0)
 
-        with Progress() as progress:
-            pbar = progress.add_task("[cyan]Ürün detayları alınıyor..[/cyan]")
+        with self.console.status('Ürün detayları alınıyor') as progress:
             for link in links:
                 req = self.bypass.get(URL=link)
                 html = BeautifulSoup(req, 'lxml')
@@ -101,8 +92,8 @@ class Scraper:
                     if logControl == False:
                         #self.telegram.sendMessage(message=message)
                         self.telegram_my.sendMessage(message=message)
-                progress.update(pbar, advance=1)
                 logger.create_log(link, 'productLog')   
+            self.console.log('Ürün detayları alındı.')
     
     def get_title(self, soup):
         try:
