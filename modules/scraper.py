@@ -91,7 +91,7 @@ class Scraper:
                 
                 if percent >= 25:
                     message = f""" 
-                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>İlk Satıcı:</b>{seller}\n<b>Fiyatı:</b>{price}\n<b>İkinci Satıcı:</b>{other_seller_name}\n<b>İkinci Satıcı Fiyat:</b>{other_seller_price}\n<b>Üçüncü Satıcı Fiyat:</b>{other_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % abs(percent)}\n\n
+                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>İlk Satıcı:</b>{seller}\n<b>İlk Satıcı Fiyatı:</b>{price}\n<b>İkinci Satıcı:</b>{other_seller_name}\n<b>İkinci Satıcı Fiyat:</b>{other_seller_price}\n<b>Üçüncü Satıcı Fiyat:</b>{other_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % abs(percent)}\n\n
                     """
                     logControl = logger.log_control(query=title, filename='productLog')
 
