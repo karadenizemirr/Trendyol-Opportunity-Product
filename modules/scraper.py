@@ -5,6 +5,7 @@ import random
 from rich.console import Console
 from rich.progress import Progress
 from bs4 import BeautifulSoup
+from decimal import Decimal
 from modules.bypass import cloudflare_bypass
 from modules.telegram import telegram
 from modules.logger import logger
@@ -68,6 +69,7 @@ class Scraper:
         with self.console.status('Ürün detayları alınıyor') as progress:
             for link in range(0, len(links)):
                 __link = links[random.randint(0, len(links) - 1)]
+
                 req = self.bypass.get(URL=__link)
                 html = BeautifulSoup(req, 'lxml')
                 
@@ -80,14 +82,14 @@ class Scraper:
                     other_seller_name = self.get_other_seller_name(other_seller)
                     other_seller_price = self.get_other_seller_price(other_seller)
                     thirt_price = self.get_other_seller_price(html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[1])
-                    A = int(re.sub(r',(.*)','',price))
-                    B = int(other_seller_price.replace(' TL', ''))
+                    A = Decimal(price.strip('TL'))
+                    B = Decimal(other_seller_price.strip('TL'))
 
                     percent = ((B - A) / B) * 100
+
                 except:
                     percent = "none"
                     continue
-
                 
                 if percent >= 25:
                     message = f""" 
@@ -96,7 +98,7 @@ class Scraper:
                     logControl = logger.log_control(query=title, filename='productLog')
 
                     if logControl == False:
-                        self.telegram.sendMessage(message=message)
+                        #self.telegram.sendMessage(message=message)
                         self.telegram_my.sendMessage(message=message)
                 logger.create_log(link, 'productLog')   
             self.console.log('Ürün detayları alındı.')
