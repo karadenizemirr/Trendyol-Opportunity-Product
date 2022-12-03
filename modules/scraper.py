@@ -24,7 +24,7 @@ class Scraper:
         if current == previous:
             return 0
         try:
-            return (abs(current - previous) / previous) * 100.0
+            return abs((int(current) - int(previous)) / int(previous)) * 100
         except ZeroDivisionError:
             return float('inf')
 
@@ -94,7 +94,7 @@ class Scraper:
                     A = Decimal(price.strip('TL'))
                     B = Decimal(other_seller_price.strip('TL'))
 
-                    percent = self.get_change(current=A, previos=B)
+                    percent = self.get_change(current=A, previous=B)
                 except:
                     percent = "none"
                     continue
