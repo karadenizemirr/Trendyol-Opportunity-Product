@@ -91,14 +91,14 @@ class Scraper:
                     other_seller_name = self.get_other_seller_name(other_seller)
                     other_seller_price = self.get_other_seller_price(other_seller)
                     thirt_price = self.get_other_seller_price(html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[1])
-                    A = Decimal(price.strip('TL'))
-                    B = Decimal(other_seller_price.strip('TL'))
+                    A = float(int(re.sub(r',[0-9]* TL', "", price).replace(".", "")))
+                    B = float(int(re.sub(r',[0-9]* TL', "", other_seller_price).replace(".", "")))
 
                     percent = self.get_change(current=A, previous=B)
                 except:
                     percent = "none"
                     continue
-                
+                print(percent)
                 if (percent >= 25) and (percent <=75):
                     message = f""" 
                     \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>İlk Satıcı:</b>{seller}\n<b>İlk Satıcı Fiyatı:</b>{price}\n<b>İkinci Satıcı:</b>{other_seller_name}\n<b>İkinci Satıcı Fiyat:</b>{other_seller_price}\n<b>Üçüncü Satıcı Fiyat:</b>{thirt_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % abs(percent)}\n\n

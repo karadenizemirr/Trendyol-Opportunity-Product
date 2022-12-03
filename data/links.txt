@@ -72,7 +72,7 @@ https://www.trendyol.com/apple/iphone-13-512gb-gece-yarisi-cep-telefonu-apple-tu
 https://www.trendyol.com/apple/iphone-13-512gb-kirmizi-cep-telefonu-apple-turkiye-garantili-p-153247649?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-s22-ultra-512-gb-5g-siyah-cep-telefonu-samsung-turkiye-garantili-p-252449346?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-s22-ultra-512-gb-5g-bordo-cep-telefonu-samsung-turkiye-garantili-p-255894803?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/iphone-14-plus-128gb-mavi-cep-telefonu-apple-turkiye-garantili-p-355707174?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/iphone-14-plus-128gb-mavi-cep-telefonu-apple-turkiye-garantili-p-355707174?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-14-plus-128gb-yildiz-isigi-p-355707167?boutiqueId=615828&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-14-plus-128gb-mor-cep-telefonu-apple-turkiye-garantili-p-355707141?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-14-plus-128gb-product-red-p-355707179?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
@@ -98,7 +98,7 @@ https://www.trendyol.com/samsung/galaxy-s22-ultra-256-gb-5g-yesil-cep-telefonu-s
 https://www.trendyol.com/apple/12-9-inch-ipad-pro-wi-fi-256gb-uzay-grisi-p-378873498?boutiqueId=616005&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/12-9-inch-ipad-pro-wi-fi-256gb-gumus-p-378873476?boutiqueId=616005&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/klipsch/r-625fa-dolby-atmos-destekli-siyah-kule-hoparlor-p-195412247?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/iphone-14-128gb-yildiz-isigi-p-355707118?boutiqueId=615828&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/iphone-14-128gb-yildiz-isigi-p-355707118?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-14-128gb-gece-yarisi-p-355707175?boutiqueId=615828&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-14-128gb-product-red-p-355707173?boutiqueId=615828&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/ipad-pro-5-nesil-12-9-inc-wi-fi-512gb-uzay-grisi-mhnk3tu-a-p-106851814?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
@@ -207,7 +207,7 @@ https://www.trendyol.com/apple/iphone-12-mini-128gb-mor-cep-telefonu-apple-turki
 https://www.trendyol.com/apple/iphone-12-mini-128gb-red-cep-telefonu-apple-turkiye-garantili-p-65373574?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/dji/rs-3-pro-gimbal-stabilizer-p-354907871?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-11-128-gb-beyaz-cep-telefonu-aksesuarsiz-kutu-apple-turkiye-garantili-p-64074794?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/iphone-11-128-gb-siyah-cep-telefonu-aksesuarsiz-kutu-apple-turkiye-garantili-p-64074797?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/iphone-11-128-gb-siyah-cep-telefonu-aksesuarsiz-kutu-apple-turkiye-garantili-p-64074797?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/iphone-12-mini-64gb-beyaz-cep-telefonu-apple-turkiye-garantili-p-65165081?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/casper/excalibur-intel-core-i7-11600h-16gb-500gb-ssd-rtx3050-4gb-15-6-fhd-dos-gaming-laptop-p-117829111?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/lenovo/ip-gaming-3-intel-core-i5-12500h-8gb-512gb-ssd-4gb-rtx3050-dos-15-6-fhd-gaming-laptop-82s900eqtx-p-409537500?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -224,6 +224,7 @@ https://www.trendyol.com/apple/ipad-air-5-nesil-64-gb-10-9-wi-fi-cellular-pembe-
 https://www.trendyol.com/apple/ipad-air-5-nesil-64-gb-10-9-wi-fi-cellular-mavi-tablet-p-337377226?boutiqueId=617753&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/ipad-air-256gb-wi-fi-10-9-mor-mme63tu-a-tablet-turkiye-garantili-apple-turkiye-garantili-p-277000988?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/10-9-inch-ipad-wi-fi-cellular-256gb-gumus-p-378873488?boutiqueId=616005&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/acer/swift-3-sf314-511-evo-intel-core-i7-1165g7-16gb-512gb-ssd-14-w11-fhd-laptop-acer-turkiye-garanti-p-311102433?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/watch-7-gps-cellular-45mm-altin-paslanmaz-celik-kasa-altin-milano-loop-apple-turkiye-garantili-p-331535744?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/watch-series-7-gps-cellular-45mm-silver-stainless-steel-case-with-silver-milanese-loop-mkjw-p-344885474?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/sapphire/rx6800xt-16gb-nitro-se-11304-01-20g-gddr6-256bit-hdmi-dp-pcie-16x-v4-0-p-73222536?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -337,7 +338,7 @@ https://www.trendyol.com/asus/vivobook-15-m1502ia-ej134-ryzen-5-4600h-8gb-ram-51
 https://www.trendyol.com/samsung/galaxy-s20-fe-256-gb-snapdragon-beyaz-cep-telefonu-samsung-turkiye-garantili-p-177430055?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-s20-fe-128-gb-snapdragon-beyaz-cep-telefonu-samsung-turkiye-garantili-p-253773349?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-s20-fe-128-gb-snapdragon-mavi-cep-telefonu-samsung-turkiye-garantili-p-223578034?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/samsung/galaxy-s20-fe-128-gb-snapdragon-mor-cep-telefonu-samsung-turkiye-garantili-p-248696658?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/samsung/galaxy-s20-fe-128-gb-snapdragon-mor-cep-telefonu-samsung-turkiye-garantili-p-248696658?boutiqueId=617729&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-s20-fe-128-gb-snapdragon-yesil-cep-telefonu-samsung-turkiye-garantili-p-253780991?boutiqueId=617729&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-a73-128-gb-koyu-gri-cep-telefonu-samsung-turkiye-garantili-p-299813076?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/klipsch/the-three-ii-heritage-serisi-bluetooth-aktif-hoparlor-ceviz-agaci-p-42677138?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -404,7 +405,7 @@ https://www.trendyol.com/xiaomi/redmi-note-11-pro-5g-6-gb-128-gb-akilli-cep-tele
 https://www.trendyol.com/xiaomi/redmi-note-11-pro-5g-6-gb-128-gb-akilli-cep-telefonu-kutup-beyazi-xiaomi-turkiye-garantili-p-288480359?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/tp-link/deco-x90-2p-4804-mbps-5ghz-ax6600-wifi-system-p-131393116?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/xiaomi/mi-pad-5-256-gb-11-tablet-beyaz-xiaomi-turkiye-garantili-p-155785479?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/watch-nike-seri-7-45mm-gps-yildiz-isigi-aluminyum-kasa-ve-pure-platinum-siyah-nike-spor-p-200322179?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/watch-nike-seri-7-45mm-gps-yildiz-isigi-aluminyum-kasa-ve-pure-platinum-siyah-nike-spor-p-200322179?boutiqueId=617753&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/watch-nike-series-7-mknc3tu-a-45mm-midnight-kasa-anthracite-siyah-spor-kordon-p-164598648?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/xiaomi/x4-pro-5g-6gb-ram-128-gb-mavi-cep-telefonu-xiaomi-turkiye-garantili-p-335026878?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-a33-128-gb-mavi-cep-telefonu-samsung-turkiye-garantili-p-273564149?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -416,7 +417,7 @@ https://www.trendyol.com/apple/watch-series-7-45-mm-yildiz-isigi-akilli-saat-app
 https://www.trendyol.com/apple/watch-7-45-mm-gps-yesil-akilli-saat-aluminyum-kasa-ve-clover-spor-kordon-apple-turkiye-garantili-p-164598650?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/watch-series-7-gps-45mm-mavi-aluminyum-kasa-ve-abyss-blue-spor-kordon-apple-turkiye-garantili-p-164598643?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/watch-7-45-mm-gps-kirmizi-akilli-saat-aluminyum-kasa-kirmizi-spor-kordon-apple-turkiye-garantili-p-164590493?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/ipad-9-nesil-64-gb-10-2-wi-fi-uzay-grisi-tablet-apple-turkiye-garantili-p-159077147?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/ipad-9-nesil-64-gb-10-2-wi-fi-uzay-grisi-tablet-apple-turkiye-garantili-p-159077147?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/ipad-9-nesil-64-gb-10-2-wi-fi-gumus-tablet-apple-turkiye-garantili-p-155654335?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/lenovo/yoga-tab-yt-j706f-4gb-128gb-11-wi-fi-gri-tablet-za8w0065tr-lenovo-turkiye-garantili-p-282421662?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/xiaomi/redmi-note-11-pro-5g-6-gb-ram-128-gb-gri-cep-telefonu-turkiye-garantili-p-363178703?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -477,7 +478,7 @@ https://www.trendyol.com/wiami/fx-10-robot-supurge-beyaz-p-276959559?boutiqueId=
 https://www.trendyol.com/wiami/fx-10-robot-supurge-siyah-p-276974486?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-a32-128-gb-siyah-cep-telefonu-samsung-turkiye-garantili-p-99574269?boutiqueId=617729&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-a32-128-gb-beyaz-cep-telefonu-samsung-turkiye-garantili-p-105040051?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/samsung/galaxy-a32-128-gb-mor-cep-telefonu-samsung-turkiye-garantili-p-102207092?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/samsung/galaxy-a32-128-gb-mor-cep-telefonu-samsung-turkiye-garantili-p-102207092?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-a32-128-gb-mavi-cep-telefonu-samsung-turkiye-garantili-p-101964367?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-watch5-pro-45-mm-gray-titanium-samsung-turkiye-garantili-p-344305867?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-watch5-pro-45-mm-black-titanium-samsung-turkiye-garantili-p-344305861?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -566,7 +567,7 @@ https://www.trendyol.com/braun/silk-expert-mini-pl1014-300-000-atimli-yeni-nesil
 https://www.trendyol.com/samsung/galaxy-a12-64-gb-siyah-turkiye-garantili-p-212104573?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/xiaomi/redmi-pad-4-gb-ram-128-gb-tablet-gri-p-370992670?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/vestel/amd-2011-x-ankastre-mikrodalga-firin-p-39683511?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/samsung/galaxy-m13-64-gb-mavi-cep-telefonu-samsung-turkiye-garantili-p-322578085?boutiqueId=617729&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/samsung/galaxy-m13-64-gb-mavi-cep-telefonu-samsung-turkiye-garantili-p-322578085?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-m13-64-gb-yesil-cep-telefonu-samsung-turkiye-garantili-p-322575746?boutiqueId=617729&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-m13-64-gb-bakir-cep-telefonu-samsung-turkiye-garantili-p-322577862?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/klipsch/heritage-groove-bluetooth-high-end-aktif-hoparlor-siyah-p-42518694?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -690,7 +691,7 @@ https://www.trendyol.com/jbl/flip-6-bluetooth-mavi-hoparlor-p-234496557?boutique
 https://www.trendyol.com/jbl/flip-6-bluetooth-kirmizi-hoparlor-p-234479543?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/jbl/flip-6-bluetooth-gri-hoparlor-p-234488486?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/realme/c11-2021-32gb-gri-cep-telefonu-realme-turkiye-garantili-p-208486198?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/airpods-2-nesil-beyaz-bluetooth-kulaklik-mv7n2tu-a-apple-turkiye-garantili-p-6405631?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/airpods-2-nesil-beyaz-bluetooth-kulaklik-mv7n2tu-a-apple-turkiye-garantili-p-6405631?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/tefal/gc470d-gourmet-minute-tost-makinesi-gri-p-4061642?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/1tb-t7-shield-usb-3-2-gen-2-ssd-mu-pe1t0r-ww-tasinabilir-mavi-ssd-samsung-turkiye-garantili-p-314133236?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/970-evo-plus-1tb-3400mb-2500mb-s-m2-ssd-disk-mz-v7s1t0bw-siyah-ssd-samsung-turkiye-garantili-p-4643178?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -735,7 +736,7 @@ https://www.trendyol.com/roidmi/mojietu-m10-kablosuz-dikey-supurge-turkiye-garan
 https://www.trendyol.com/schafer/prochef-xl-stand-mikser-5-lt-kirmizi-p-34357785?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/schafer/pembe-altin-prochef-xl-stand-mikser-5-l-6-parca-p-50932563?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/samsung/galaxy-tab-a7-lite-t220-gri-tablet-samsung-turkiye-garantili-p-118641711?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/samsung/galaxy-tab-a7-lite-t220-gumus-tablet-samsung-turkiye-garantili-p-118906831?boutiqueId=617730&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/samsung/galaxy-tab-a7-lite-t220-gumus-tablet-samsung-turkiye-garantili-p-118906831?boutiqueId=613935&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/tefal/bj561d-magic-tea-xl-cay-makinesi-p-98605396?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/babyliss/big-hair-doner-4-fircali-hava-uflemeli-sac-sekillendirici-fon-taragi-p-35790314?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/steelseries/arctis-5-oyuncu-kulaklik-7-1-surround-pc-ve-ps-uyumlu-rgb-aydinlatma-siyah-p-3890646?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -1037,7 +1038,7 @@ https://www.trendyol.com/kingston/a400-ssd-240gb-500mb-350mb-s-sata3-ssd-sa400s3
 https://www.trendyol.com/grundig/mk-1140-425-watt-el-mikseri-p-166830491?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/yui/m-2090-led-ekranli-hassas-tartili-4-bicakli-blender-p-160103171?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/yui/kb-21-profesyonel-iyonik-sac-duzlestirici-firca-p-168116135?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/kiwi/ksi-6440-portatif-buharli-kir-sik-giderici-dikey-utu-ksi6440-p-43160657?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/kiwi/ksi-6440-portatif-buharli-kirisik-giderici-dikey-utu-ksi6440-p-43160657?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/xiaomi/mi-band-5-akilli-bileklik-siyah-global-versiyon-p-43214066?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/sinbo/shb-3147-blender-seti-p-2543106?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/grundig/hs-5330-seramik-keratin-kaplama-iyonik-fonksiyonlu-sac-duzlestirici-p-2189517?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
@@ -1056,7 +1057,7 @@ https://www.trendyol.com/sinbo/scm-2953-filtre-kahve-makinesi-p-11504009?boutiqu
 https://www.trendyol.com/haylou/t15-siyah-bluetooth-kulaklik-p-38879372?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/yui/kb-3060-25mm-su-dalgasi-wag-sac-masasi-beyaz-p-192583762?boutiqueId=614666&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/turkiye-garantili-20-w-usb-c-guc-adaptoru-p-71618985?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/apple/iphone-orjinal-sarj-aleti-kablosu-1m-lightning-usb-kablosu-mxly7zm-b-p-37284627?boutiqueId=616521&merchantId=968&filterOverPriceListings=false&sav=true
+https://www.trendyol.com/apple/iphone-orjinal-sarj-aleti-kablosu-1m-lightning-usb-kablosu-mxly7zm-b-p-37284627?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/lightning-konnektorlu-kulaklik-mmtn2tu-a-p-2772967?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/earpods-headphone-plug-3-5-mm-jakli-kulaklik-p-3632037?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/apple/usb-c-lightning-kablosu-1-m-mm0a3zm-a-p-195436634?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
@@ -1126,4 +1127,3 @@ https://www.trendyol.com/tp-link/tl-wn727n-150-mbps-n-kablosuz-wps-usb-adaptor-p
 https://www.trendyol.com/yui/fg-69-siyah-bluetooth-kulakustu-kulaklik-yui-turkiye-garantili-p-36916317?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/yui/fg-69-mavi-bluetooth-kulakustu-kulaklik-yui-turkiye-garantili-p-36916315?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
 https://www.trendyol.com/a4-tech/atech-fg35-gri-nano-kablosuz-optik-2000-dpi-mouse-p-36907221?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
-https://www.trendyol.com/a4-tech/km-720-usb-f-kablolu-klavye-siyah-p-2800999?boutiqueId=614790&merchantId=968&filterOverPriceListings=false&sav=true
