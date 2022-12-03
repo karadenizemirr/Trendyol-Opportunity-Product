@@ -106,7 +106,7 @@ class Scraper:
                     logControl = logger.log_control(query=title, filename='productLog')
 
                     if logControl == False:
-                        #self.telegram.sendMessage(message=message)
+                        self.telegram.sendMessage(message=message)
                         self.telegram_my.sendMessage(message=message)
                 logger.create_log(link, 'productLog')   
             self.console.log('Ürün detayları alındı.')
