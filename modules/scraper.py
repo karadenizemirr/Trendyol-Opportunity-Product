@@ -20,6 +20,15 @@ class Scraper:
         self.base_url = "https://www.trendyol.com"
         # &pi=4
 
+    def get_change(self, current, previous):
+        if current == previous:
+            return 0
+        try:
+            return (abs(current - previous) / previous) * 100.0
+        except ZeroDivisionError:
+            return float('inf')
+
+        
     def get_page_number(self, link=None):
         counter = 1
         
@@ -85,8 +94,7 @@ class Scraper:
                     A = Decimal(price.strip('TL'))
                     B = Decimal(other_seller_price.strip('TL'))
 
-                    percent = ((B - A) / B) * 100
-
+                    percent = self.get_change(current=A, previos=B)
                 except:
                     percent = "none"
                     continue
