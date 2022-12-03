@@ -99,7 +99,7 @@ class Scraper:
                     percent = "none"
                     continue
                 
-                if percent >= 25:
+                if (percent >= 25) and (percent <=75):
                     message = f""" 
                     \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>İlk Satıcı:</b>{seller}\n<b>İlk Satıcı Fiyatı:</b>{price}\n<b>İkinci Satıcı:</b>{other_seller_name}\n<b>İkinci Satıcı Fiyat:</b>{other_seller_price}\n<b>Üçüncü Satıcı Fiyat:</b>{thirt_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % abs(percent)}\n\n
                     """
@@ -108,7 +108,7 @@ class Scraper:
                     if logControl == False:
                         self.telegram.sendMessage(message=message)
                         self.telegram_my.sendMessage(message=message)
-                logger.create_log(link, 'productLog')   
+                logger.create_log(title, 'productLog')   
             self.console.log('Ürün detayları alındı.')
     
     def get_title(self, soup):
