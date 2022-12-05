@@ -77,7 +77,7 @@ class TrendyolScraper:
             "Ürün Linki": product_link
         })
         
-        if (percent_difference >= 5) & (logger.log_control(query=product_link, filename='productLog') == False):
+        if (percent_difference >= 25) & (logger.log_control(query=product_link, filename='productLog') == False):
             # Create Message
             message = f"""\n\n<b>Trendyol Fırsat Ürünü</b>\n\
                 \n<a href="{product_link}">{title}</a>\n\n<b>İlk Satıcı:</b>{first_seller}\n<b>İlk Satıcı Fiyatı:</b>{first_seller_price}\n<b>İkinci Satıcı:</b>{second_seller}\n<b>İkinci Satıcı Fiyatı:</b>{second_seller_price}\n<b>Üçüncü Satıcı Fiyatı:</b>{thiry_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % (percent_difference)}
