@@ -41,30 +41,17 @@ class GetData(scraper.TrendyolScraper):
     
     def get_data(self):
         product_link = self.flatten(self.all_product_link_list)
+        
         processes = []
 
-        print("\n")
-        with Progress() as progress:
-            pbar = progress.add_task('Modüller başlatılıyor..', total=len(product_link))
-
-            for product in product_link:
-                processes.append(Thread(target=self.create_product_link, args=(product,)))
-                progress.update(pbar, advance=1)
-
-        print("\n")
-        with Progress() as progress:
-            pbar = progress.add_task('Veri alınıyor..', total=len(processes))
-            for process in processes:
-                process.start()
-                self.all_product_detail.append(self.Q.get())
-                print(self.Q.get())
-                progress.update(pbar, advance=1)
-        print("\n")
-        with Progress() as progress:
-            pbar = progress.add_task('Veri kayıt ediliyor..', total=len(processes))
-            for process in processes:
-                process.join()
-                progress.update(pbar, advance=1)
+        for product in product_link:
+            processes.append(Thread(target=self.get_product, args=(product,)))
+        
+        for process in processes:
+            process.start()
+        
+        for process in processes:
+            process.join()
     
     def run(self):
         self.get_all_category_link()

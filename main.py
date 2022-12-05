@@ -1,3 +1,4 @@
+import time
 from modules import scraper
 from  modules import get_data
 from rich.console import Console
@@ -26,4 +27,6 @@ def main():
     get_data.GetData(categories=categories).run()
 
 if __name__ == '__main__':
-    main()
+    while True:
+        main()
+        time.sleep(60 * 15)

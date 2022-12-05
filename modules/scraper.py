@@ -57,8 +57,8 @@ class TrendyolScraper:
         self.Q.put(product_link)
 
     def get_product(self, product_link=None):
-        req = self.session.get(product_link)
-        html = BeautifulSoup(req.text, 'html.parser')
+        req = self.bypass.get(URL=product_link)
+        html = BeautifulSoup(req, 'html.parser')
 
         title = self.get_title(html)
         first_seller, first_seller_price = self.get_first_seller(html)
@@ -82,6 +82,7 @@ class TrendyolScraper:
             message = f"""\n\n<b>Trendyol Fırsat Ürünü</b>\n\
                 \n<a href="{product_link}">{title}</a>\n\n<b>İlk Satıcı:</b>{first_seller}\n<b>İlk Satıcı Fiyatı:</b>{first_seller_price}\n<b>İkinci Satıcı:</b>{second_seller}\n<b>İkinci Satıcı Fiyatı:</b>{second_seller_price}\n<b>Üçüncü Satıcı Fiyatı:</b>{thiry_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % (percent_difference)}
                 """
+            self.telegram.sendMessage(message=message)
             self.telegram_my.sendMessage(message=message)
         else:
             pass
