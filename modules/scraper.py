@@ -1,154 +1,145 @@
 import requests
+import queue
 import re
-import os
-import random
 from rich.console import Console
-from rich.progress import Progress
+from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
+from modules import bypass
 from decimal import Decimal
-from modules.bypass import cloudflare_bypass
-from modules.telegram import telegram
 from modules.logger import logger
+from modules import telegram
 
-class Scraper:
+class TrendyolScraper:
     def __init__(self):
         self.console = Console()
+        self.Q = queue.Queue()
         self.session = requests.Session()
-        self.bypass = cloudflare_bypass.Bypass()
+        self.ua = UserAgent(browsers=['edge', 'chrome'])
+        self.bypass = bypass.Bypass()
+        self.headers = {
+            "User-Agent": self.ua.random
+        }
+        self.base_url = "https://www.trendyol.com"
         self.telegram = telegram.Telegram(token="5750542194:AAHUctF5ImPnjjOmobKfh7pUBsd_5ZHobG8", user_id="744777387")
         self.telegram_my = telegram.Telegram(token="5901890521:AAG_9fjlySpTIQmJD-pb5wjYXC8hU-jjVvA", user_id="5669620760")
-        self.base_url = "https://www.trendyol.com"
-        # &pi=4
 
-    def get_change(self, current, previous):
-        if current == previous:
-            return 0
-        try:
-            return abs((int(current) - int(previous)) / int(previous)) * 100
-        except ZeroDivisionError:
-            return float('inf')
-
-        
     def get_page_number(self, link=None):
         counter = 1
-        
-        with self.console.status("[cyan]Sayfa numaraları tespit ediliyor..[/cyan]") as status:
+        category_pagination_link = []
+
+        with self.console.status("[cyan]Sayfa numaraları ve kategoriler tespit ediliyor..[/cyan]") as status:
             while True:
                 _link = f"{link}&pi={counter}"
                 req = self.bypass.get(URL=_link, allow_redirect=True)
-                html = BeautifulSoup(req, 'lxml').findAll('div', {'class': 'prdct-cntnr-wrppr'})
+                html = BeautifulSoup(req, 'lxml').findAll(
+                    'div', {'class': 'prdct-cntnr-wrppr'})
 
                 if len(html) < 1:
                     if counter >= 150:
                         break
                     break
                 counter += 1
-            self.console.log('Sayfa numarası tespit edildi.', style="bold yellow")
-            return int(counter - 1)
-        
-    def get_product_link(self,links=[]):
-        _links = []
-        for link in links:
-            for p in range(0, self.get_page_number(link)):
-                req = self.bypass.get(URL=f"{link}&pi={p}")
-                html = BeautifulSoup(req, 'lxml')
+                category_pagination_link.append(_link)
 
-                link_html = html.findAll('div', {'class' : 'p-card-chldrn-cntnr card-border'})
-                
-                for l in link_html:
-                    _links.append(f"{self.base_url}{str(l.findNext('a')['href']).strip()}")
-        try:
-            os.remove('data/links.txt')
-        except:
+            self.Q.put(category_pagination_link)
+
+    def create_product_link(self, category_link=None):
+        product_link = []
+
+        req = self.session.get(category_link, headers=self.headers)
+        html = BeautifulSoup(req.text, 'html.parser')
+        all_a = html.findAll(
+            'div', {'class': 'p-card-chldrn-cntnr card-border'})
+
+        for a in all_a:
+            product_link.append(f"{self.base_url}{a.a['href']}")
+
+        self.Q.put(product_link)
+
+    def get_product(self, product_link=None):
+        req = self.session.get(product_link)
+        html = BeautifulSoup(req.text, 'html.parser')
+
+        title = self.get_title(html)
+        first_seller, first_seller_price = self.get_first_seller(html)
+        second_seller, second_seller_price = self.get_other_seller(html, 0)
+        thirt_seller, thiry_seller_price = self.get_other_seller(html, 1)
+        percent_difference = self.percent_diffrence(A=first_seller_price, B=second_seller_price)
+
+        self.Q.put({
+            "Ürün Adı": title,
+            "İlk Satıcı": first_seller,
+            "İlk Satıcı Fiyatı": first_seller_price,
+            "İkinci Satıcı": second_seller,
+            "İkinci Satıcı Fiyatı": second_seller_price,
+            "Üçüncü Satıcı Fiyatı": thiry_seller_price,
+            "Yüzdelik Fark": "%.2f" % (percent_difference),
+            "Ürün Linki": product_link
+        })
+        
+        if (percent_difference >= 5) & (logger.log_control(query=product_link, filename='productLog') == False):
+            # Create Message
+            message = f"""\n\n<b>Trendyol Fırsat Ürünü</b>\n\
+                \n<a href="{product_link}">{title}</a>\n\n<b>İlk Satıcı:</b>{first_seller}\n<b>İlk Satıcı Fiyatı:</b>{first_seller_price}\n<b>İkinci Satıcı:</b>{second_seller}\n<b>İkinci Satıcı Fiyatı:</b>{second_seller_price}\n<b>Üçüncü Satıcı Fiyatı:</b>{thiry_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % (percent_difference)}
+                """
+            self.telegram_my.sendMessage(message=message)
+        else:
             pass
-        
-        with open('data/links.txt', 'w', encoding='utf-8') as file:
-            for _ in _links:
-                file.write('\n')
-                file.write(_.strip())
-        return _links
-    
-    def get_product_detail(self):
-        links = []
-        with open('data/links.txt', 'r', encoding='utf-8') as file:
-            for f in file.readlines():
-                links.append(f.strip())
-        links.pop(0)
 
-        with self.console.status('Ürün detayları alınıyor') as progress:
-            for link in range(0, len(links)):
-                __link = links[random.randint(0, len(links) - 1)]
+        logger.create_log(data=product_link, filename='productLog')
 
-                req = self.bypass.get(URL=__link)
-                html = BeautifulSoup(req, 'lxml')
-                
-                title = self.get_title(html)
-                seller = self.get_seller(html)
-                price = self.get_price(html)
-                
-                try:
-                    other_seller = html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[0]
-                    other_seller_name = self.get_other_seller_name(other_seller)
-                    other_seller_price = self.get_other_seller_price(other_seller)
-                    thirt_price = self.get_other_seller_price(html.findAll('div', {'class': 'pr-mc-w gnr-cnt-br'})[1])
-                    A = float(int(re.sub(r',[0-9]* TL', "", price).replace(".", "")))
-                    B = float(int(re.sub(r',[0-9]* TL', "", other_seller_price).replace(".", "")))
-
-                    percent = self.get_change(current=A, previous=B)
-                except:
-                    percent = "none"
-                    continue
-                print(percent)
-                if (percent >= 25) and (percent <=75):
-                    message = f""" 
-                    \n<b>TRENDYOL FIRSAT ÜRÜNÜ</b>\n\n\n<a href="{__link}">{title}</a>\n\n<b>İlk Satıcı:</b>{seller}\n<b>İlk Satıcı Fiyatı:</b>{price}\n<b>İkinci Satıcı:</b>{other_seller_name}\n<b>İkinci Satıcı Fiyat:</b>{other_seller_price}\n<b>Üçüncü Satıcı Fiyat:</b>{thirt_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % abs(percent)}\n\n
-                    """
-                    logControl = logger.log_control(query=title, filename='productLog')
-
-                    if logControl == False:
-                        self.telegram.sendMessage(message=message)
-                        self.telegram_my.sendMessage(message=message)
-                logger.create_log(title, 'productLog')   
-            self.console.log('Ürün detayları alındı.')
-    
-    def get_title(self, soup):
+    def get_title(self, html):
         try:
-            title = soup.findAll('h1', {'class': 'pr-new-br'})[0].text
+            title = html.find('h1', {'class': 'pr-new-br'}).text
         except:
             title = "null"
-        
+
         return title
-    
-    def get_seller(self, soup):
+
+    def get_first_seller(self, html):
         try:
-            seller = soup.find('a', {'class': 'merchant-text'}).text
+            first_seller = html.find('a', {'class': 'merchant-text'}).text
+            first_seller_price = float(Decimal(re.sub(r'[^\d.]', '',  html.find('span', {'class': 'prc-dsc'}).text)))
+        except:
+            first_seller = 'null'
+            first_seller_price = 'null'
+
+        return first_seller, first_seller_price
+
+    def get_other_seller(self, html, seller_number):
+        if seller_number > 4:
+            return "null", "null"
+
+        try:
+            container = html.findAll(
+                'div', {'class': 'pr-mc-w gnr-cnt-br'})[seller_number]
+            seller = container.find('div', {'class': 'seller-container'}).text
+            price = float(Decimal(re.sub(r'[^\d.]', '', container.find('span', {'class': 'prc-dsc'}).text)))
         except:
             seller = "null"
-        
-        return seller
-    
-    def get_price(self, soup):
-        try:
-            #price = float(re.sub(r',(.*)','',soup.find('span', {'class': 'prc-dsc'}).text))
-            price = soup.find('span', {'class': 'prc-dsc'}).text
-        except:
             price = "null"
-        
-        return price
+
+        return seller, price
     
-    def get_other_seller_name(self, soup):
+    def get_rate(self, html):
         try:
-            other_seller_name = soup.find('div', {'class': 'seller-container'}).a.text
+            rate = html.find('div', {'class': 'pr-rnr-sm-p'}).text
         except:
-            other_seller_name = "null"
-        
-        return other_seller_name
-    
-    def get_other_seller_price(self, soup):
-        try:
-            #other_seller_price = float(soup.find('span', {'class': 'prc-dsc'}).text.replace(' TL', ''))
-            other_seller_price = soup.find('span', {'class': 'prc-dsc'}).text
-        except:
-            other_seller_price = "null"
-        
-        return other_seller_price
+            rate = "null"
+
+        return rate
+
+    def flatten(self, nasted_list):
+        """
+        input: nasted_list - this contain any number of nested lists.
+        ------------------------
+        output: list_of_lists - one list contain all the items.
+        """
+
+        list_of_lists = []
+        for item in nasted_list:
+            list_of_lists.extend(item)
+        return list_of_lists
+
+    def percent_diffrence(self,A,B):
+        return abs((A - B) / B) * 100

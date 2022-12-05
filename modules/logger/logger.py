@@ -14,8 +14,10 @@ def log_control(query, filename):
         for f in file.readlines():
             logData.append(f.strip())
     
-    find = str(logData).find(query)
-    if find >= 0:
+
+    find = str(logData).find(str(query))
+    
+    if find > 0:
         return True
     else:
         return False

@@ -1,11 +1,11 @@
 import requests
-import time
-from modules.user_agent import user_agent
+from fake_useragent import UserAgent
 
 class Bypass:
     def __init__(self) -> None:
         self.session = requests.Session()
-        self.user_agent = user_agent.random_user_agent()
+        self.ua = UserAgent(browsers=['edge', 'chrome'])
+        self.user_agent = self.ua.random
         self.headers = {
             "Client-IP": "127.0.0.1",
             "X-Real-Ip": "127.0.0.1",

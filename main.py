@@ -1,40 +1,29 @@
-import time
-import tkinter as tk
-from tkinter import filedialog
 from modules import scraper
+from  modules import get_data
 from rich.console import Console
 
 console = Console()
-root = tk.Tk()
-root.withdraw()
-sc = scraper.Scraper()
 
 console.print(""" 
-    \n[purple]Trendyol Fırsat Ürün Bulucu[/purple]
-    \n\n
-    \nYazar: Emirhan KARADENİZ
-    \nVersion: 2022.1
-    \nGithub: https://github.com/karadenizemirr
-    \n\n
-    [yellow]Uyarı: Yazılımı kullanabilmek için kategori linklerinin olması gerekir.[yellow]
-""", style="bold cyan", justify="center")
+\nTrendyol Ürün Fiyat Takip Uygulamasına Hoş Geldiniz
+\n
+\nYazar: Emirhan KARADENİZ
+\nVersion: 2022.2
+\nGithub: https://github.com/karadenizemirr
+\n
+\n[red]Uyarı: Lütfen [yellow]data[/yellow] klasörü içerisinde bulunan [yellow]category.txt[/yellow] dosyasını silmeyin.[/red]
+
+""", style="bold purple", justify="center")
 
 def main():
-    console.print("\nLütfen kategori .txt dosyasını seçiniz.", style="bold red")
-    time.sleep(2)
-    category_link = []
+    # Open Category Data
+    categories = []
 
-    with open('data/category.txt', 'r', encoding="utf-8") as file:
+    with open('data/category.txt', 'r', encoding='utf-8') as file:
         for f in file.readlines():
-            category_link.append(f.strip())
+            categories.append(f.strip())
     
-    # Create Product Link
-    sc.get_product_link(links=category_link)
-    # Get Operations
-    sc.get_product_detail()
-    
+    get_data.GetData(categories=categories).run()
 
-if __name__=='__main__':
-    while True:
-        main()
-        time.sleep(60 * 15)
+if __name__ == '__main__':
+    main()

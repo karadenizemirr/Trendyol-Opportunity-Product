@@ -21,5 +21,5 @@ class Telegram:
             if req['ok']:
                 self.console.log("Mesaj gönderildi.", style="bold green")
             return True
-        except :
+        except:
             self.console.log("Mesaj gönderilemedi.", style="bold red")
