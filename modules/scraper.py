@@ -76,8 +76,6 @@ class TrendyolScraper:
             "Yüzdelik Fark": "%.2f" % (percent_difference),
             "Ürün Linki": product_link
         })
-
-        self.console.print(self.Q.get())
         
         if (percent_difference >= 25) & (logger.log_control(query=product_link, filename='productLog') == False):
             # Create Message
@@ -85,7 +83,7 @@ class TrendyolScraper:
                 \n<a href="{product_link}">{title}</a>\n\n<b>İlk Satıcı:</b>{first_seller}\n<b>İlk Satıcı Fiyatı:</b>{first_seller_price}\n<b>İkinci Satıcı:</b>{second_seller}\n<b>İkinci Satıcı Fiyatı:</b>{second_seller_price}\n<b>Üçüncü Satıcı Fiyatı:</b>{thiry_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % (percent_difference)}
                 """
             
-            #self.telegram.sendMessage(message=message)
+            self.telegram.sendMessage(message=message)
             self.telegram_my.sendMessage(message=message)
         else:
             pass
