@@ -76,13 +76,16 @@ class TrendyolScraper:
             "Yüzdelik Fark": "%.2f" % (percent_difference),
             "Ürün Linki": product_link
         })
+
+        self.console.print(self.Q.get())
         
         if (percent_difference >= 25) & (logger.log_control(query=product_link, filename='productLog') == False):
             # Create Message
             message = f"""\n\n<b>Trendyol Fırsat Ürünü</b>\n\
                 \n<a href="{product_link}">{title}</a>\n\n<b>İlk Satıcı:</b>{first_seller}\n<b>İlk Satıcı Fiyatı:</b>{first_seller_price}\n<b>İkinci Satıcı:</b>{second_seller}\n<b>İkinci Satıcı Fiyatı:</b>{second_seller_price}\n<b>Üçüncü Satıcı Fiyatı:</b>{thiry_seller_price}\n<b>Yüzdelik Fark:</b>{"%.2f" % (percent_difference)}
                 """
-            self.telegram.sendMessage(message=message)
+            
+            #self.telegram.sendMessage(message=message)
             self.telegram_my.sendMessage(message=message)
         else:
             pass
@@ -100,7 +103,7 @@ class TrendyolScraper:
     def get_first_seller(self, html):
         try:
             first_seller = html.find('a', {'class': 'merchant-text'}).text
-            first_seller_price = float(Decimal(re.sub(r'[^\d.]', '',  html.find('span', {'class': 'prc-dsc'}).text)))
+            first_seller_price = float(int(re.sub(r',[0-9]* TL', "", html.find('span', {'class': 'prc-dsc'}).text)))
         except:
             first_seller = 'null'
             first_seller_price = 'null'
@@ -115,7 +118,7 @@ class TrendyolScraper:
             container = html.findAll(
                 'div', {'class': 'pr-mc-w gnr-cnt-br'})[seller_number]
             seller = container.find('div', {'class': 'seller-container'}).text
-            price = float(Decimal(re.sub(r'[^\d.]', '', container.find('span', {'class': 'prc-dsc'}).text)))
+            price = float(int(re.sub(r',[0-9]* TL', "", container.find('span', {'class': 'prc-dsc'}).text).replace(".", "")))
         except:
             seller = "null"
             price = "null"
@@ -143,4 +146,7 @@ class TrendyolScraper:
         return list_of_lists
 
     def percent_diffrence(self,A,B):
-        return abs((A - B) / B) * 100
+        try:
+            return abs((A - B) / B) * 100
+        except:
+            return 0.00
